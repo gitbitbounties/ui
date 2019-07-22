@@ -1,0 +1,31 @@
+.button {
+    padding: 10px;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+h1 {
+    color: blueviolet;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    font-size: xx-large;
+}
+
+.center-text {
+    text-align: center
+}
+
+
+#number-field-div {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30px;
+}
