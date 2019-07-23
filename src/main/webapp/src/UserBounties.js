@@ -4,7 +4,6 @@ import GetAddress from './GetAddress';
 import AddressList from './AddressList'
 
 class UserBounties extends Component {
-
     constructor(props) {
         super(props);
         this.state = {

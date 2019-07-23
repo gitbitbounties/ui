@@ -33,6 +33,14 @@ h1 {
     padding-right: 5%;
 }
 
+.ListItemOdd {
+    background-color: antiquewhite;
+}
+
+.ListItemEven {
+    background-color: azure;
+}
+
 #number-field-div {
     padding-left: 0;
     padding-right: 0;
