@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import Divider from '@material-ui/core/Divider';
+import GetAddress from './GetAddress';
 
 class UserBounties extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,12 +33,17 @@ class UserBounties extends Component {
     };
     */
 
+
+
     render() {
         return (
-            <div className="center-text">
+            <div className="field">
                 <h1> Balance </h1>
                 <p> {this.state.balance} sat </p>
+                <Divider />
+                <br></br>
                 <h1> Deposit </h1>
+                <GetAddress> </GetAddress>
             </div>
         );
     }
