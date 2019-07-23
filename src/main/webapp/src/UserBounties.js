@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Divider from '@material-ui/core/Divider';
 import GetAddress from './GetAddress';
+import AddressList from './AddressList'
 
 class UserBounties extends Component {
 
@@ -13,6 +14,24 @@ class UserBounties extends Component {
             completedBounties: ""
         }
     }
+
+    // On startup, fetch user balance, etc.
+    componentDidMount() {
+        this.getBalance();
+    }
+
+    getBalance =() => {
+        let request = fetch("fetchURL");
+        request.then(res => res.json())
+            .then(resText => {
+                    this.setState({
+                        balance: resText.balance
+                    });
+                }
+            ).catch(error => {
+                alert("balance did not load properly");
+        });
+    };
 
     /*
     // update start to the value returned by the Select component
@@ -41,9 +60,11 @@ class UserBounties extends Component {
                 <h1> Balance </h1>
                 <p> {this.state.balance} sat </p>
                 <Divider />
-                <br></br>
+                <br />
                 <h1> Deposit </h1>
-                <GetAddress> </GetAddress>
+                <GetAddress />
+                <AddressList />
+                <Divider />
             </div>
         );
     }

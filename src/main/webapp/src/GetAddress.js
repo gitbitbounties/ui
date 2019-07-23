@@ -16,9 +16,11 @@ const theme = createMuiTheme({
 export default function FloatingActionButtons() {
     return (
         <MuiThemeProvider theme={theme}>
-            <Fab color="secondary" aria-label="Add" size="small">
-                <AddIcon />
-            </Fab>
+            <div className="fab">
+                <Fab color="secondary" aria-label="Add" size="medium" >
+                    <AddIcon />
+                </Fab>
+            </div>
         </MuiThemeProvider>
     );
 }
