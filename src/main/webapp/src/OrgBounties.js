@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import Divider from '@material-ui/core/Divider';
-import GetAddress from './GetAddress';
 import AddressList from './AddressList'
+import GenerateAddress from "./GenerateAddress";
+import IssueTable from './IssueTable'
 
-class UserBounties extends Component {
+class OrgBounties extends Component {
     constructor(props) {
         super(props);
         this.state = {
             user: "",
-            balance: "",
+            balance: 0,
+            addresses: [111, 222],
             activeBounties: "",
             completedBounties: ""
         }
@@ -16,42 +18,24 @@ class UserBounties extends Component {
 
     // On startup, fetch user balance, etc.
     componentDidMount() {
-        this.getBalance();
+        this.getInfo();
     }
 
-    getBalance =() => {
+    getInfo =() => {
         let request = fetch("fetchURL");
         request.then(res => res.json())
             .then(resText => {
                     this.setState({
-                        balance: resText.balance
+                        balance: resText.balance,
+                        addresses: resText.addresses,
+                        activeBounties: resText.activeBounties,
+                        completedBounties: resText.completedBounties
                     });
                 }
             ).catch(error => {
-                alert("balance did not load properly");
+                alert("Data did not load properly");
         });
     };
-
-    /*
-    // update start to the value returned by the Select component
-    handleUpdateStart = (newStart) => {
-        this.setState({start: newStart})
-    };
-
-    // Update end to the value returned by the Select component
-    handleUpdateEnd = (newEnd) => {
-        this.setState({end: newEnd})
-    };
-    */
-
-    /*
-    // if clear is clicked, resets edges so it can be cleared
-    handleClear = () => {
-        this.setState({start: "", end: ""});
-    };
-    */
-
-
 
     render() {
         return (
@@ -61,12 +45,14 @@ class UserBounties extends Component {
                 <Divider />
                 <br />
                 <h1> Deposit </h1>
-                <GetAddress />
-                <AddressList />
+                <GenerateAddress />
+                <AddressList addresses={this.state.addresses}/>
                 <Divider />
+                <br />
+                <IssueTable />
             </div>
         );
     }
 }
 
-export default UserBounties;
+export default OrgBounties;

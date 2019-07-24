@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import UserBounties from './UserBounties'
+import OrgBounties from './OrgBounties'
 
 class App extends Component {
     render() {
         return (
             <div className="UserBounties">
-                <UserBounties />
+                <OrgBounties />
             </div>
         );
     }
